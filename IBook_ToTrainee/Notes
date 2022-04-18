@@ -1,0 +1,66 @@
+Inject bookRepository using autowiring.
+Annotate it with appropriate stereotype annotation with value as "bookService":
+Annotate it with appropriate annotation for managing transactions.
+Method Description
+
+getBookDetails(Integer bookId)
+
+This method fetches book details based on bookId.
+Invoke the appropriate method of BookRepository to fetch book details based on bookId.
+If books are found, then return the book details.
+Else, throw an object of InfyBookException with the message Service.BOOK_DETAILS_NOT_FOUND.
+addBook(BookDTO bookDTO)
+
+This method adds book details to the database and returns the title of the book.
+Invoke the validate() of Validator class to validate the book details.
+If the validation is successful, invoke the appropriate method of BookRepository to check if the given book is already present in database or not.
+If the book is already present, throw an object of InfyBookException with the message Service.BOOK_ALREADY_PRESENT. 
+Else add the book details to the database by invoking appropriate method of BookRepository and return the title of the book.
+getBookByAuthorName(String authorName)
+
+This method fetches the books authored by given author.
+Invoke the appropriate method of BookRepository to fetch the the books authored by given author.
+If books are found, then return the books.
+Else, throw an object of InfyBookException with the message Service.BOOK_NOT_FOUND.
+getBookGreaterThanEqualToPrice (Integer price)
+
+This method fetches the books whose price greater than or equal to a given price
+Invoke the appropriate method of BookRepository, which fetches the books whose price greater than or equal to a given price
+If books are found, then return the books.
+Else, throw an object of InfyBookException with the message Service.BOOKS_NOT_FOUND.
+getBookLessThanPrice (Integer price)
+
+This method fetches the books whose price less than given price.
+Invoke the appropriate method of BookRepository, whichfetches the books whose price less than given price.
+If books are found, then return the books.
+Else, throw an object of InfyBookException with the message Service.BOOKS_NOT_FOUND.
+bookPublishedBetweenYear(LocalDate startYear, LocalDate endYear)
+
+This method fetches the books which are published between startYear and endYear.
+Invoke the appropriate method of BookRepository, which fetches books which are published between startYear and endYear.
+If books are found, then return the books.
+Else, throw an object of InfyBookException with the message Service.BOOKS_NOT_FOUND.
+bookPublishedAfterYear(LocalDate year)
+
+This method fetches the books which are published after the given year.
+Invoke the appropriate method of BookRepository, which fetches books which are published after the given year.
+If books are found, then return the books.
+Else, throw an object of InfyBookException with the message Service.BOOKS_NOT_FOUND.
+getBookByAuthorNameAndPublisher (String authorName, String publisher)
+
+This method fetches the  books published by a particular author and publisher.
+Invoke the appropriate method of BookRepository, which fetches the books published by a particular author and publisher.
+If books are found, then return the books.
+Else, throw an object of InfyBookException with the message Service.BOOKS_NOT_FOUND.
+updateBookPrice(Integer bookId, Integer newPrice)
+
+This method updates the price of the book based on bookId.
+Invoke the appropriate method of BookRepository which fetches the book details based on bookId.
+If book is not found, throw an object of InfyBookException with the message "Service.BOOK_NOT_FOUND".
+Else, update the book price in database by invoking appropriate method of BookRepository.
+deleteBook(Integer bookId)
+
+This method deletes the book details based on bookId.
+Invoke the appropriate method of BookRepository which fetches the book details based on bookId.
+If book is not found throw an object of InfyBookException with the message "Service.BOOK_NOT_FOUND".
+Else, delete the book from the database by invoking appropriate method of BookRepository interface.
