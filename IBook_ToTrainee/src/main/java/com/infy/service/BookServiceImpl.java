@@ -42,9 +42,9 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public void addBook(BookDTO bookDTO) throws InfyBookException {
-		//Validator.validate(bookDTO);
-		//Optional<Book> optional=bookRepository.findById(bookDTO.getBookId());
-		//optional.orElseThrow(() -> new InfyBookException("Service.BOOK_ALREADY_PRESENT"));
+		Validator.validate(bookDTO);
+		Optional<Book> optional=bookRepository.findById(bookDTO.getBookId());
+		optional.orElseThrow(() -> new InfyBookException("Service.BOOK_ALREADY_PRESENT"));
 		bookRepository.addBook(bookDTO.getBookId(), bookDTO.getTitle(), bookDTO.getPublishedYear(), bookDTO.getPublisher(), bookDTO.getIsbn(), bookDTO.getPrice());
 		
 	}
